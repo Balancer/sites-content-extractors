@@ -8,7 +8,9 @@ class Extractor extends \B2\Obj
 	{
 		$xqueries = $this->xqueries();
 		$title = $this->dom()->query($xqueries['title']);
+		$content = $this->dom()->query($xqueries['content']);
+		$image = $this->dom()->query($xqueries['image']);
 
-		dump($title);
+		dump($title->text(), $content->text(), $image->attr('src'));
 	}
 }
