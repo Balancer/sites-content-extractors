@@ -13,7 +13,10 @@ class Parser extends \B2\Obj
 
 	function parse($url, $html = NULL)
 	{
-		$dom = blib_dom::from_html($html);
+		if($html)
+			$dom = blib_dom::from_html($html);
+		else
+			$dom = blib_dom::from_url($url);
 
 		foreach($this->register() as $url_pattern => $class_name)
 		{
